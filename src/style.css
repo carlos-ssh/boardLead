@@ -3,10 +3,9 @@ body {
   padding: 0;
   width: 100vw;
   font-family: 'Roboto', sans-serif;
-
 }
 
-nav{
+nav {
   background-color: #e7e7e7;
   height: 45px;
 }
@@ -15,7 +14,7 @@ ul {
   padding: 0;
 }
 
-li{
+li {
   list-style-type: none;
   padding: 10px;
 }
@@ -35,7 +34,6 @@ li{
 .title {
   font-size: 20px;
   font-weight: bold;
-  margin-left: 10px;
   text-decoration: none;
   color: #000;
   font-family: 'Roboto', sans-serif;
