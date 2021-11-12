@@ -22,10 +22,6 @@ li {
   border-bottom: 5px solid #e7e7e7;
 }
 
-.divform {
-  padding-top: 40px;
-}
-
 .tablediv {
   margin: 20px;
   border: 5px solid #e7e7e7;
@@ -46,7 +42,7 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  padding: 50px;
 }
 
 .btn {
