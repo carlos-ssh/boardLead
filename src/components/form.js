@@ -1,28 +1,23 @@
-const displayForm = () => {
+const displayForm = (submitScore) => {
   const form = document.getElementById('form-container');
-  const inputName = document.getElementById(input);
-  const inputScore = document.getElementById(input);
+  const inputName = document.createElement('input');
+  const inputScore = document.createElement('input');
   const btn = document.createElement('button');
 
   inputName.id = 'name';
   inputName.type = 'text';
+  inputName.required = true;
   inputName.placeholder = 'Add your Name';
 
   inputScore.id = 'score';
   inputScore.type = 'number';
+  inputScore.required = true;
   inputScore.placeholder = 'Add your Score';
 
   btn.innerHTML = 'Submit';
+  btn.id = 'btn-submit';
   btn.classList.add('btn');
-  btn.id = 'submit';
-  btn.addEventListener('click', () => {
-    const name = inputName.value;
-    const score = inputScore.value;
-    const newPlayer = new Player(name, score);
-    newPlayer.addPlayer();
-    newPlayer.sortPlayers();
-    newPlayer.displayPlayers();
-  });
+  btn.onclick = submitScore;
 
   form.append(inputName);
   form.append(inputScore);
