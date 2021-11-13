@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>boardLead</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#" class="title">boardLead</a>
-    </nav>
-  </header>
-  <main>
-    <section class="parent">
-      <div id="tablediv" class="tablediv">
-        <h2>Recent Scores:</h2>
-                                              <!-- Table -->
-        <ul id="score-result" class="score-result">
-        </ul>
-      </div>
-      <div id="divform" class="divform">
-        <h2>Add your Score:</h2>
-                                              <!-- Form -->
-        <form id="form-container" class="form-container">
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer></footer>
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+  </head>
+  <body>
+    <header>
+      <h1>Leaderboard</h1> 
+    </header>
+    <main class="container">
+    
+      <section class="score-container">
+        <div class="left-container">
+          <div class="refresh-container">
+            <h2>Recent scores</h2>
+            <button type="button" id="refresh">Refresh</button>
+          </div>
+          <ul id="score-list" class="score-list">
+           
+          </ul>
+        </div>
+        <div class="right-container">
+          <h2>Add your score</h2>
+          <form id="form-container" class="form-container">
+           
+          </form>
+        </div>
+      </section>
+    
+    </main>
 </html>
