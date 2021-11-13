@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-const gameId = 'Zl4d7IVkemOTTVg2fUdz';
+const gameId = 'pMxFA7HzjrI3CVSUQpgA';
 const apiURL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 
-async function getScores() {
+const getScores = async () => {
   const response = await axios.get(`${apiURL}/games/${gameId}/scores`);
   return response;
-}
+};
 
-async function addScores(game) {
+const addScores = async (game) => {
   const response = await axios.post(`${apiURL}/games/${gameId}/scores`, game);
   return response;
-}
+};
 
 export { getScores, addScores };

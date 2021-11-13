@@ -17,7 +17,7 @@ const displayForm = (submitScore) => {
   btn.innerHTML = 'Submit';
   btn.id = 'btn-submit';
   btn.classList.add('btn');
-  btn.onclick = submitScore;
+  btn.onclick = submitScore();
 
   form.append(inputName);
   form.append(inputScore);

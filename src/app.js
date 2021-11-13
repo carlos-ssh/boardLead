@@ -1,10 +1,10 @@
-import './style.css';
-import LiElement from './components/listElements';
-import { getScores, addScores } from './components/scores';
-import displayForm from './components/form';
+import './css/style.css';
+import LiElement from './components/LiElement';
+import { getScores, addScores } from './data';
+import form from './components/form';
 
 const displayData = () => {
-  const sl = document.getElementById('score-result');
+  const sl = document.getElementById('score-list');
   const response = getScores();
   let data = [];
   const liLoading = LiElement({ user: 'Getting data from API', score: '' });
@@ -12,10 +12,15 @@ const displayData = () => {
 
   response
     .then((response) => {
+      // handle success
       data = [...response.data.result];
       sl.innerHTML = '';
-      data.forEach((score) => {
+      data.forEach((score, index) => {
         const li = LiElement(score);
+        if (index % 2 === 0) {
+          li.classList.add('bg-secondary');
+          console.log('index', index);
+        }
         sl.append(li);
       });
     })
@@ -24,6 +29,7 @@ const displayData = () => {
         user: "Couldn't get data from API :(",
         score: '',
       });
+      sl.append(error);
       sl.append(liLoading);
     });
 };
@@ -47,7 +53,8 @@ const hanldeRefresh = () => {
 
 const startApp = () => {
   displayData();
-  displayForm(submitScore);
+  form(submitScore);
+  // Event haldler for refresh
   const btnRefresh = document.getElementById('refresh');
   btnRefresh.onclick = hanldeRefresh;
 };
