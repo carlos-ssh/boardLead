@@ -1,7 +1,7 @@
 import './style.css';
 import LiElement from './components/listElements';
 import { getScores, addScores } from './components/scores';
-import form from './components/form';
+import displayForm from './components/form';
 
 const displayData = () => {
   const sl = document.getElementById('score-result');
@@ -12,7 +12,6 @@ const displayData = () => {
 
   response
     .then((response) => {
-      // handle success
       data = [...response.data.result];
       sl.innerHTML = '';
       data.forEach((score) => {
@@ -25,7 +24,6 @@ const displayData = () => {
         user: "Couldn't get data from API :(",
         score: '',
       });
-      console.log(error);
       sl.append(liLoading);
     });
 };
@@ -49,8 +47,7 @@ const hanldeRefresh = () => {
 
 const startApp = () => {
   displayData();
-  form(submitScore);
-  // Event haldler for refresh
+  displayForm(submitScore);
   const btnRefresh = document.getElementById('refresh');
   btnRefresh.onclick = hanldeRefresh;
 };
