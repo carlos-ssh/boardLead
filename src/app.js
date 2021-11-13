@@ -1,6 +1,6 @@
-import './css/style.css';
+import './style.css';
 import LiElement from './components/LiElement';
-import { getScores, addScores } from './data';
+import { getScores, addScores } from './components/data';
 import form from './components/form';
 
 const displayData = () => {
