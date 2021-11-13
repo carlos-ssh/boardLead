@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --coverage",
-    "deploy": "npm run build && gh-pages -d dist",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
