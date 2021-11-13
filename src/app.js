@@ -6,29 +6,58 @@ import form from './components/form';
 
 
 const displayData = () => {
-  const data = getScore();
+  const response = getScore();
   const sl = document.querySelector('.score-result');
-  sl.innerHTML = '';
-  data.forEach((score) => {
-    const li = liElement(score);
-    sl.append(li);
+  const data = [];
+  const liLoading = liElement('loading...');
+  sl.append(liLoading);
+
+  response
+  .then((response) => {
+    data = [...response.data.result];
+    data.forEach((score) => {
+      const li = liElement(score);
+      sl.append(li);
+      console.log(score);
+    });
+  })
+  .catch((err) => {
+    const liLoading = liElement({
+      user: 'No Response from api',
+      score: 'No Response from api'
+    });
+    
+    sl.append(liLoading);
   });
 };
 
 const submitScore = (e) => {
   e.preventDefault();
-  const name = document.getElementById('name').value;
+  const user = document.getElementById('name').value;
   const score = document.getElementById('score').value;
-  const obj = { name, score};
-  
-  addScore(obj);
+  const game = { user, score};
+
+  const response = addScore(game);
+  response.then((resp) => {
+    console.log(resp);
+    const li = liElement(resp.data.result);
+    const sl = document.querySelector('.score-result');
+    sl.append(li);
+  });
+
   displayData();
-  form.reset();
+}
+
+const handleRefresh = () => {
+  displayData();
 }
 
 const app = () => {
   displayData();
   form(submitScore);
-}
+
+  const refresh = document.querySelector('.refresh');
+  refresh.addEventListener('click', handleRefresh);
+};
 
 app();
